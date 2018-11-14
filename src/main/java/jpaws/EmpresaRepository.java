@@ -7,7 +7,7 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import java.util.List;
 
 
-@RepositoryRestResource(collectionResourceRel = "empresa", path = "empresa")
+@RepositoryRestResource(collectionResourceRel = "incidencia", path = "incidencia")
 
 //This repository is an interface and will allow you to perform various operations
 // involving Empresa objects.
@@ -15,8 +15,8 @@ import java.util.List;
 // interface defined in Spring Data Commons.
 // https://docs.spring.io/spring-data/commons/docs/current/api/org/springframework/data/repository/PagingAndSortingRepository.html
 
-public interface EmpresaRepository extends PagingAndSortingRepository<Empresa, Long> {
+public interface EmpresaRepository extends PagingAndSortingRepository<Incidencia, Integer> {
 
-     List<Empresa> findByNombre(@Param("nombre") String nombre);
+
 
 }

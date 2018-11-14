@@ -1,77 +1,129 @@
 package jpaws;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+@Entity
 public class Incidencia {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private int id;
+
+    private int idTrabajador;
+
+    private int idApp;
+
+    private String titulo;
+
+    private String descripcion;
+
+    private String estado;
+
+    private int idSolver;
+
+    private String comentario;
+
+    private String fechaIncidencia;
+
+    private String fechaResolucion;
 
 
 
-    private String nombre;
-
-
-    public String getNombre() {
-        return nombre;
-    }
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-
-    private String email;
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-
-    private String web;
-
-    public String getWeb() {
-        return web;
-    }
-    public void setWeb(String web) {
-        this.web = web;
+    public int getid() {
+        return id;
     }
 
-
-
-    private String tipoSociedad;
-
-    public String getTipoSociedad() {
-        return tipoSociedad;
+    public void setid(int id) {
+        this.id = id;
     }
 
-    public void setTipoSociedad(String tipoSociedad) {
-        this.tipoSociedad = tipoSociedad;
+    public int getIdTrabajador() {
+        return idTrabajador;
     }
 
-    private String nif;
-    public String getNif() {
-        return nif;
+    public void setIdTrabajador(int idTrabajador) {
+        this.idTrabajador = idTrabajador;
     }
 
-    public void setNif(String nif) {
-        this.nif = nif;
+    public int getIdApp() {
+        return idApp;
+    }
+
+    public void setIdApp(int idApp) {
+        this.idApp = idApp;
+    }
+
+    public String getTitulo() {
+        return titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
+    public int getIdSolver() {
+        return idSolver;
+    }
+
+    public void setIdSolver(int idSolver) {
+        this.idSolver = idSolver;
+    }
+
+    public String getComentario() {
+        return comentario;
+    }
+
+    public void setComentario(String comentario) {
+        this.comentario = comentario;
+    }
+
+    public String getFechaIncidencia() {
+        return fechaIncidencia;
+    }
+
+    public void setFechaIncidencia(String fechaIncidencia) {
+        this.fechaIncidencia = fechaIncidencia;
+    }
+
+    public String getFechaResolucion() {
+        return fechaResolucion;
+    }
+
+    public void setFechaResolucion(String fechaResolucion) {
+        this.fechaResolucion = fechaResolucion;
     }
 
     @Override
     public String toString() {
-        return "Empresa{" +
+        return "Incidencia{" +
                 "id=" + id +
-                ", nombre='" + nombre + '\'' +
-                ", email='" + email + '\'' +
-                ", web='" + web + '\'' +
-                ", tipoSociedad='" + tipoSociedad + '\'' +
-                ", nif='" + nif + '\'' +
+                ", idTrabajador=" + idTrabajador +
+                ", idApp=" + idApp +
+                ", titulo='" + titulo + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                ", estado='" + estado + '\'' +
+                ", idSolver=" + idSolver +
+                ", comentario='" + comentario + '\'' +
+                ", fechaIncidencia='" + fechaIncidencia + '\'' +
+                ", fechaResolucion='" + fechaResolucion + '\'' +
                 '}';
     }
 }
