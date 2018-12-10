@@ -18,5 +18,4 @@ import java.util.List;
 public interface EmpresaRepository extends PagingAndSortingRepository<Incidencia, Integer> {
 
 
-
 }
