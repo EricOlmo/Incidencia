@@ -1,9 +1,10 @@
 package jpaws;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
+
+import javax.persistence.*;
 
 @Entity
 public class Incidencia {
@@ -11,23 +12,38 @@ public class Incidencia {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
-    private int idTrabajador;
 
-    private int idApp;
-
+    @Column
     private String titulo;
 
+    @Column
     private String descripcion;
 
-    private String estado;
+    @Column
+    private int estado;
 
+    @Column
     private int idSolver;
 
+    @Column
     private String comentario;
 
+    @Column
     private String fechaIncidencia;
 
+    @Column
     private String fechaResolucion;
+
+    @ManyToOne
+//    @JoinColumn(name = "Trabajadorxd", nullable = false)
+    //   @JoinColumn(name = "Manytrabajador")
+    private Aplicacion App;
+
+    @ManyToOne
+//    @JoinColumn(name = "Trabajadorxd", nullable = false)
+ //   @JoinColumn(name = "Manytrabajador")
+    private Trabajador Trabajador;
+
 
 
 
@@ -37,22 +53,6 @@ public class Incidencia {
 
     public void setid(int id) {
         this.id = id;
-    }
-
-    public int getIdTrabajador() {
-        return idTrabajador;
-    }
-
-    public void setIdTrabajador(int idTrabajador) {
-        this.idTrabajador = idTrabajador;
-    }
-
-    public int getIdApp() {
-        return idApp;
-    }
-
-    public void setIdApp(int idApp) {
-        this.idApp = idApp;
     }
 
     public String getTitulo() {
@@ -71,11 +71,11 @@ public class Incidencia {
         this.descripcion = descripcion;
     }
 
-    public String getEstado() {
+    public Integer getEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
+    public void setEstado(Integer estado) {
         this.estado = estado;
     }
 
@@ -111,12 +111,27 @@ public class Incidencia {
         this.fechaResolucion = fechaResolucion;
     }
 
+
+    public jpaws.Trabajador getTrabajador() { return Trabajador; }
+
+    public void setTrabajador(jpaws.Trabajador trabajador) {
+        Trabajador = trabajador;
+    }
+
+    public Aplicacion getApp() {
+        return App;
+    }
+
+    public void setApp(Aplicacion app) {
+        App = app;
+    }
+
     @Override
     public String toString() {
         return "Incidencia{" +
                 "id=" + id +
-                ", idTrabajador=" + idTrabajador +
-                ", idApp=" + idApp +
+                ", Aplicacion=" + App.getId() +
+                ", Trabajador=" + Trabajador.getId() +
                 ", titulo='" + titulo + '\'' +
                 ", descripcion='" + descripcion + '\'' +
                 ", estado='" + estado + '\'' +
@@ -126,4 +141,7 @@ public class Incidencia {
                 ", fechaResolucion='" + fechaResolucion + '\'' +
                 '}';
     }
+
+
+
 }

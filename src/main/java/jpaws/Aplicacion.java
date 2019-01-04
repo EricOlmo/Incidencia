@@ -1,20 +1,17 @@
 package jpaws;
 
-import javax.persistence.*;
-import java.util.Set;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
-public class Trabajador {
+public class Aplicacion {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
 
     private String nombre;
-
-    private String correo;
-    //@OneToMany
-    //@JoinColumn(name = "ManyTrabajador")
-   // private Set<Incidencia> getIncidencia;
 
     public long getId() {
         return id;
@@ -31,13 +28,4 @@ public class Trabajador {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
-
-    public String getCorreo() {
-        return correo;
-    }
-
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
-
 }
